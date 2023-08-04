@@ -1,0 +1,44 @@
+.topdeal{
+    h1{
+        margin-bottom: 20px;
+    }
+    
+    .list{
+
+        .listItem{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+
+            .user{
+                display: flex;
+                gap: 20px;
+                img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .userTexts{
+                    gap: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    .username{
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                    .email{
+                        font-size: 12px;
+                    }
+
+                }
+
+               
+            }
+            .amount{
+                font-weight: 500;
+            }
+        }
+    }
+}
