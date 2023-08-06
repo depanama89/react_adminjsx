@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import "./user.scss"
 import DataTable from '../../components/dataTable/DataTable'
 import AddUser from '../../components/addUser/AddUser'
+import { Link } from 'react-router-dom'
+import Add from '../../components/add/Add'
 
 const Users = () => {
   const [open,setOpen]=useState(false)
@@ -59,12 +61,23 @@ const Users = () => {
       width:150,
       renderCell:(params)=>{
         return <div className="action">
-          <Link to={`${props.slug}/${params.row.id}`} className="view"><img src="/view.svg" alt="" className='action' /></Link>
+          <Link to={`${params.row.id}`} className="view"><img src="/view.svg" alt="" className='action' /></Link>
           <Link className="delete"><img src="/delete.svg" alt="" className='action'  onClick={()=>handleDelete(params.row.id)}/></Link>
         </div>
   
       }
     },
+  ];
+  const rows = [
+    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35,status:true },
+    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
   ];
   
   return (
@@ -74,8 +87,8 @@ const Users = () => {
         <button onClick={()=>setOpen(true)}>Add new user</button>
       </div>
 
-      <DataTable slug="users"/>
-      {open && <AddUser slug="users" columns={columns}  setOpen={setOpen}/>}
+      <DataTable slug="users"  columns={columns} rows={rows}/>
+      {open && <Add slug="users" columns={columns}  setOpen={setOpen}/>}
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { createRoot } from "react-dom/client";
 import Home from './pages/home/Home'
-import Product from './pages/product/Product';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +14,7 @@ import Footer from './components/footer/Footer';
 import Menu from './components/menu/Menu';
 import Login from './pages/login/Login';
 import "./styles/global.scss"
+import Products from './pages/products/Products';
 
 const App = () => {
 
@@ -57,7 +57,7 @@ const App = () => {
         },
         {
           path:"products",
-          element:<Product/>
+          element:<Products/>
         }
       ]
     },
