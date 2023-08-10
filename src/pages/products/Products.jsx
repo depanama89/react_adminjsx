@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import"./products.scss"
 import DataTable from '../../components/dataTable/DataTable';
 import Add from '../../components/add/Add';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const [open,setOpen]=useState(false)
@@ -20,7 +21,7 @@ const Products = () => {
       field: "title",
       type: "string",
       headerName: "Title",
-      width: 200,
+      width: 150,
     },
     {
       field: "color",
@@ -38,7 +39,7 @@ const Products = () => {
       field: "producer",
       headerName: "Producer",
       type: "string",
-      width: 150,
+      width: 100,
     },
     {
       field: "createdAt",
@@ -49,9 +50,20 @@ const Products = () => {
     {
       field: "inStock",
       headerName: "In Stock",
-      width: 150,
+      width: 80,
       type: "boolean",
     },
+    {
+      feild: "action",
+      headerName:"Action",
+      width:80,
+      renderCell:(params)=>{
+        return <div className='action'>
+            <Link to={`${params.row.id}`} className='view'><img src="./view.svg" alt="" /></Link>
+            <Link className='delete'><img src="./delete.svg" alt=""  onClick={()=>handleDelete(params.row.id)}/></Link>
+        </div>
+      },
+    }
   ];
 
  const products = [
